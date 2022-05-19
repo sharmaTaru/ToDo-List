@@ -11,5 +11,8 @@
     "List"
   ],
   "author": "Taru Sharma",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
