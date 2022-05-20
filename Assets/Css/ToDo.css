@@ -1,0 +1,16 @@
+body{
+    /* background-color: green; */
+    text-align: Center;
+}
+.input-style{
+    border:0px;
+    height: 70px;
+    outline: 0;
+    
+}
+.input-div{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+

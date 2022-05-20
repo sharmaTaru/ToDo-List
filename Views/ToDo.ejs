@@ -4,10 +4,61 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
+    <script src="https://kit.fontawesome.com/e31ad148fb.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="Css/ToDo.css">
   </head>
+
+
   <body>
-    <h1>Hello, world!</h1>
+
+
+    <div class="container">
+      <h1>TODO App</h1>
+
+    <form action="">
+      
+       <div class="input-div">
+        <label>DESCRIPTION</label>
+        <input class="input-style"
+         type="text"
+         placeholder="List your task here">
+       </div>
+        
+       <div class="input-div">
+        <label>CATEGORY</label>
+        <select class="input-style">
+          <option selected>Choose a category</option>
+          <option value="1">Personal</option>
+          <option value="2">Work</option>
+          <option value="3">School</option>
+          <option value="4">Cleaning</option>
+          <option value="5">Others</option>
+        </select>
+       </div>
+
+      <div class="input-div">
+        <label for="date">DUE DATE</label>
+        <input class="input-style"
+      type="date"
+      id="date"
+      placeholder="List your task here">
+      </div>
+
+      <button type="submit">
+        <i class="fa-solid fa-plus"></i>
+        ADD TASK
+      </button>
+      <button type="submit" >
+        <i class="fa-solid fa-trash-can"></i>
+        DELETE TASKS
+      </button>
+
+    </form>
+
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
