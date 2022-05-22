@@ -16,18 +16,20 @@
     <div class="container">
       <h1>TODO App</h1>
 
-    <form action="">
+    <form action="/addTask" method="post">
       
        <div class="input-div">
         <label>DESCRIPTION</label>
         <input class="input-style"
          type="text"
+         name="Description"
          placeholder="List your task here">
        </div>
         
        <div class="input-div">
         <label>CATEGORY</label>
-        <select class="input-style">
+        <select class="input-style"
+        name="Category">
           <option selected>Choose a category</option>
           <option value="1">Personal</option>
           <option value="2">Work</option>
@@ -41,6 +43,7 @@
         <label for="date">DUE DATE</label>
         <input class="input-style"
       type="date"
+      name="Date"
       id="date"
       placeholder="List your task here">
       </div>
