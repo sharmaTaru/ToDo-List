@@ -11,8 +11,6 @@ module.exports.addTask = function(req,res){
             console.log("Error in creating new task");
             return;
         }
-        return res.render('ToDo',{
-            title : "ToDo List"
-        })
+        return res.redirect('back');
     })
 }
