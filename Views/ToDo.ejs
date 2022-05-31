@@ -49,29 +49,22 @@
       id="date">
       </div>
 
-      <button type="submit" class="btn btn-secondary active">
+      <button type="submit" class="btn btn-secondary">
         <i class="fa-solid fa-plus"></i>
         ADD TASK
       </button>
-     <label for="deleteButton" class="btn btn-danger active">
+     <button class="btn btn-danger" type="button" id="deleteButton" onclick="mulDel()">
       <i class="fa-solid fa-trash-can"></i>
       DELETE TASKS
-     </label>
-
+    </button>
     </form>
 
     <div class="form-outputs">
       <ul class="list-group list-group-flush">
        <% for(let i of allTasks){ %>
-       
-          <a id="aTag" href="/deleteTask/?id=<%= i._id %>">
-            <button type="submit" id="deleteButton" hidden>
-          </button>
-          </a>
-        
             <li class="list-group-item">
                 <div class="d-flex">
-                  <input type="checkbox" id="checkbox">
+                  <input type="checkbox" id="checkbox" data-id="<%= i._id %>" onclick="checks('<%= i._id %>')">
                   <p>
                     <%= i.Description %>
                   </p>
