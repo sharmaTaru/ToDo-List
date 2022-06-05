@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
     <script src="https://kit.fontawesome.com/e31ad148fb.js" crossorigin="anonymous"></script>
-
-
+    <!-- Using bootstrap here to make my todo app look good -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/ToDo.css">
   </head>
@@ -14,74 +13,116 @@
 
   <body>
 
-
-    <div class="container">
+    <div class="container" id="fullBody">
       <h1>TODO App</h1>
 
-    <form action="/addTask" method="post" id="input-form">
+    <form action="/addTask" method="post"
+    class="from-floating" 
+    id="input-form">
       
-       <div class="input-div">
-        <label>DESCRIPTION</label>
-        <input class="input-style"
-         type="text"
-         name="Description"
-         placeholder="List your task here">
-       </div>
-        
-       <div class="input-div">
-        <label>CATEGORY</label>
-        <select class="input-style"
-        name="Category">
-          <option selected>Choose a category</option>
-          <option>Personal</option>
-          <option>Work</option>
-          <option>School</option>
-          <option>Cleaning</option>
-          <option>Others</option>
-        </select>
-       </div>
-
-      <div class="input-div">
-        <label for="date">DUE DATE</label>
-        <input class="input-style"
-      type="date"
-      name="Date"
-      id="date">
-      </div>
-
-      <button type="submit" class="btn btn-secondary">
+<div class="container">
+  <div class="row">
+  <div class="input-div col-12">
+    <!-- Taking the task here -->
+    <label for="Description">DESCRIPTION</label>
+    <input class="input-style"
+     type="text"
+     id="Description"
+     name="Description"
+     placeholder="List your task here">
+   </div>
+    <hr class="divider">
+   <div class="input-div col-6">
+     <!-- Taking what kind of task it is -->
+    <label>CATEGORY</label>
+    <select class="input-style"
+    name="Category">
+      <option selected>Choose a category</option>
+      <option>Personal</option>
+      <option>Work</option>
+      <option>School</option>
+      <option>Cleaning</option>
+      <option>Others</option>
+    </select>
+   </div>
+   <div class="vr"></div>
+  <div class="input-div col-6">
+    <!-- Taking the date when the task should be done -->
+    <label for="date">DUE DATE</label>
+    <input class="input-style"
+  type="date"
+  name="Date"
+  id="date">
+  </div>
+  <hr>
+</div>
+</div>
+      <button type="submit" class="btn btn-secondary" id="submitButton">
         <i class="fa-solid fa-plus"></i>
         ADD TASK
       </button>
-     <button class="btn btn-danger" type="button" id="deleteButton" onclick="mulDel()">
+     <button class="btn btn-danger" 
+     type="button" 
+     id="deleteButton" 
+     onclick="mulDel()">
       <i class="fa-solid fa-trash-can"></i>
       DELETE TASKS
     </button>
     </form>
 
+    <hr>
+   
     <div class="form-outputs">
       <ul class="list-group list-group-flush">
        <% for(let i of allTasks){ %>
-            <li class="list-group-item">
-                <div class="d-flex">
-                  <input type="checkbox" id="checkbox" data-id="<%= i._id %>" onclick="checks('<%= i._id %>')">
-                  <p>
+
+          <li class="list-group-item">
+            
+         <div class="container">
+          <div class="row">
+            <div class="col-1">
+              <!-- this checkbox is used to select the task to be deleted -->
+              <input type="checkbox" 
+                  id="checkbox" 
+                  data-id="<%= i._id %>" 
+                  onclick="checks('<%= i._id %>')">
+            </div>
+            <div class="col-8">
+              <div class="container">
+                <div class="row" id="desAndDate">
+                  <div class="col-12">
+                    <!-- this is the task to be done -->
+                    
                     <%= i.Description %>
-                  </p>
-                  <p>
-                    <%= i.Date.getMonth() %>
+                  </div>
+                  <div class="col-12">
+                    <!-- date to complete the task -->
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <% var monthNames = [
+                    "jan","feb","mar","apr","may","jun",
+                    "jul","sub","sep","oct","nov","dec",
+                   ] %>
+                    <%= monthNames[i.Date.getMonth()] %>
                     <%= i.Date.getDate() %>
-                    <%= i.Date.getFullYear() %>
-                  </p>
-                  <span>
-                    <%= i.Category %>
-                  </span>
-                </div>
+                    <%= i.Date.getFullYear() %>            </div>
+                </div>   
+              </div>
+             </div>
+            <div class="col">
+              <!-- this is the category of the task -->
+             <div  id="category">
+              <%= i.Category %>
+             </div>
+            </div>
+          </div>
+         </div>
+
             </li>
+
         <%}%>
       </ul>
     </div>
-
+   
     </div>
    
     

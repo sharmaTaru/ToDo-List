@@ -2,6 +2,7 @@ require("../Config/mongoose");
 const Task = require("../Modals/tasks");
 module.exports.deleteTask = function(req,res){
     let id = req.query.id;
+    console.log(id,req.xhr);
     Task.findByIdAndDelete(id,function(err,taskToDelete){
         if(err){
             console.log(`Error in deleting task ${err}`);
